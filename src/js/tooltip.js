@@ -2,7 +2,7 @@
 
 const { extend } = Tether.Utils;
 
-const _Drop = Drop.createContext({
+let _Drop = Drop.createContext({
   classPrefix: 'tooltip'
 });
 
@@ -84,6 +84,12 @@ Tooltip.init = () => {
       initialized.push(el);
     }
   }
+};
+
+Tooltip.setClassPrefix = (prefix) => {
+  _Drop = Drop.createContext({
+    classPrefix: prefix
+  });
 };
 
 document.addEventListener('DOMContentLoaded', () => {
